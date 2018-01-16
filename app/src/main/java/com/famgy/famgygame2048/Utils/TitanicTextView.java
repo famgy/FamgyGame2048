@@ -16,10 +16,10 @@ import com.famgy.famgygame2048.R;
  * Created by famgy on 1/12/18.
  */
 
-public class WaterTextView extends android.support.v7.widget.AppCompatTextView {
+public class TitanicTextView extends android.support.v7.widget.AppCompatTextView {
 
     public interface AnimationSetupCallback {
-        public void onSetupAnimation(WaterTextView titanicTextView);
+        public void onSetupAnimation(TitanicTextView titanicTextView);
     }
 
     // callback fired at first onSizeChanged
@@ -40,17 +40,17 @@ public class WaterTextView extends android.support.v7.widget.AppCompatTextView {
     // (getHeight() - waveHeight) / 2
     private float offsetY;
 
-    public WaterTextView(Context context) {
+    public TitanicTextView(Context context) {
         super(context);
         init();
     }
 
-    public WaterTextView(Context context, AttributeSet attrs) {
+    public TitanicTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public WaterTextView(Context context, AttributeSet attrs, int defStyle) {
+    public TitanicTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
     }
@@ -118,7 +118,7 @@ public class WaterTextView extends android.support.v7.widget.AppCompatTextView {
         if (!setUp) {
             setUp = true;
             if (animationSetupCallback != null) {
-                animationSetupCallback.onSetupAnimation(WaterTextView.this);
+                animationSetupCallback.onSetupAnimation(TitanicTextView.this);
             }
         }
     }
