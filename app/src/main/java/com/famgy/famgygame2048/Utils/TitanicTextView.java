@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
 import com.famgy.famgygame2048.R;
@@ -16,7 +17,7 @@ import com.famgy.famgygame2048.R;
  * Created by famgy on 1/12/18.
  */
 
-public class TitanicTextView extends android.support.v7.widget.AppCompatTextView {
+public class TitanicTextView extends AppCompatTextView {
 
     public interface AnimationSetupCallback {
         public void onSetupAnimation(TitanicTextView titanicTextView);
