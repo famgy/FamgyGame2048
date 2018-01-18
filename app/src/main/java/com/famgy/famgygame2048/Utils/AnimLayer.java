@@ -114,4 +114,14 @@ public class AnimLayer extends FrameLayout {
         c.setNum(num);
         return c;
     }
+
+    //回收卡片
+    private void recycleCard(Card c) {
+
+        //隐藏卡片
+        c.setVisibility(View.INVISIBLE);
+
+        //设置卡片动画为null
+        c.setAnimation(null);
+    }
 }

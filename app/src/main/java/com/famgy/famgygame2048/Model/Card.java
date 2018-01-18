@@ -110,4 +110,8 @@ public class Card extends FrameLayout {
     public TextView getLabel() {
         return label;
     }
+
+    public boolean numEquals(Card o) {
+        return (getNum() == o.getNum());
+    }
 }

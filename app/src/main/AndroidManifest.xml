@@ -17,8 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
-        <service android:name=".Service.BackGroundMusicService"></service>
+        <activity android:name=".LoginActivity" />
+
+        <service android:name=".Service.BackGroundMusicService" />
+
+        <activity android:name=".ChartsActivity"></activity>
     </application>
 
 </manifest>

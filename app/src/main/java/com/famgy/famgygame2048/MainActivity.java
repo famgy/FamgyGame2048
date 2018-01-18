@@ -6,8 +6,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 import com.yalantis.contextmenu.lib.MenuParams;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
     private MainFragment mainFragment;
+    private long firsttime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,22 @@ public class MainActivity extends AppCompatActivity {
                 transaction.addToBackStack(backStackName);
             transaction.commit();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (System.currentTimeMillis() - firsttime < 3000) {
+                finish();
+                return true;
+            } else {
+                firsttime = System.currentTimeMillis();
+                Toast.makeText(this, "再点一次返回主菜单", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
+        return false;
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.famgy.famgygame2048;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ public class MainFragment extends Fragment {
     private TextView tvScore;
     private TextView tvBestScore;
     private AnimLayer animLayer = null;
+    public static final String SP_KEY_BEST_SCORE = "bestScore";
 
     public static MainFragment mainFragment;
 
@@ -57,11 +59,30 @@ public class MainFragment extends Fragment {
 
     //获取最高分
     public int getBestScore() {
-        return 6666;
-        //return getActivity().getPreferences(getActivity().MODE_PRIVATE).getInt(SP_KEY_BEST_SCORE, 0);
+        return getActivity().getPreferences(getActivity().MODE_PRIVATE).getInt(SP_KEY_BEST_SCORE, 0);
     }
 
     public AnimLayer getAnimLayer() {
         return animLayer;
+    }
+
+    public void addScore(int s) {
+        score += s;
+        showScore();
+        int maxScore = Math.max(score, getBestScore());
+        saveBestScore(maxScore);
+        showBestScore(maxScore);
+    }
+
+    public void saveBestScore(int s) {
+
+        // 获取  偏好编辑器
+        SharedPreferences.Editor e = getActivity().getPreferences(getActivity().MODE_PRIVATE).edit();
+
+        //往编辑器中放东西
+        e.putInt(SP_KEY_BEST_SCORE, s);
+
+        //提交
+        e.commit();
     }
 }

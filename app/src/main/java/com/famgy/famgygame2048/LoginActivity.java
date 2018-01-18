@@ -94,15 +94,14 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         Intent intent;
         switch (v.getId()) {
             case R.id.startGame:
-                int num = musicService.getRandomNumber();
-                Toast.makeText(this, "number: " + num, Toast.LENGTH_SHORT).show();
+//                int num = musicService.getRandomNumber();
+//                Toast.makeText(this, "number: " + num, Toast.LENGTH_SHORT).show();
 
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
-                finish();
                 break;
             case R.id.startCharts:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, ChartsActivity.class);
                 startActivity(intent);
                 break;
             default:
