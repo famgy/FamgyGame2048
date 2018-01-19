@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.famgy.famgygame2048.Utils.AnimLayer;
+import com.famgy.famgygame2048.Utils.GameView;
 
 /**
  * Created by famgy on 1/16/18.
@@ -21,6 +22,7 @@ public class MainFragment extends Fragment {
     private TextView tvScore;
     private TextView tvBestScore;
     private AnimLayer animLayer = null;
+    private GameView gameView;
     public static final String SP_KEY_BEST_SCORE = "bestScore";
 
     public static MainFragment mainFragment;
@@ -37,11 +39,17 @@ public class MainFragment extends Fragment {
 
         animLayer = (AnimLayer) rootView.findViewById(R.id.animLayer);
 
+        gameView = (GameView) rootView.findViewById(R.id.gameView);
+
         return rootView;
     }
 
     public static MainFragment getMainFragment() {
         return mainFragment;
+    }
+
+    public void startGame() {
+        gameView.startGame();
     }
 
     public void clearScore() {
